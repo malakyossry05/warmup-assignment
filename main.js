@@ -40,6 +40,7 @@ function getShiftDuration(startTime, endTime) {
 // endTime: (typeof string) formatted as hh:mm:ss am or hh:mm:ss pm
 // Returns: string formatted as h:mm:ss
 // ============================================================
+// calculate idle time outside delivery hours
 function getIdleTime(startTime, endTime) {
 
     function convertToSeconds(time) {
@@ -79,6 +80,7 @@ function getIdleTime(startTime, endTime) {
 // idleTime: (typeof string) formatted as h:mm:ss
 // Returns: string formatted as h:mm:ss
 // ============================================================
+// active time = shift duration minus idle time
 function getActiveTime(shiftDuration, idleTime) {
 
     function convertToSeconds(time) {
@@ -131,6 +133,7 @@ function metQuota(date, activeTime) {
 // shiftObj: (typeof object) has driverID, driverName, date, startTime, endTime
 // Returns: object with 10 properties or empty object {}
 // ============================================================
+// add a new shift record to shifts.txt
 function addShiftRecord(textFile, shiftObj) {
 
     let data = fs.readFileSync(textFile, "utf8").trim();
