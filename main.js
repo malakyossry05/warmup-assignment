@@ -6,6 +6,7 @@ const fs = require("fs");
 // endTime: (typeof string) formatted as hh:mm:ss am or hh:mm:ss pm
 // Returns: string formatted as h:mm:ss
 // ============================================================
+// calculate how long the driver's shift lasted
 function getShiftDuration(startTime, endTime) { 
 
     function convertToSeconds(time) {
